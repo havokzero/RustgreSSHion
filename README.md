@@ -3,6 +3,7 @@
 ## Overview
 
 **RustgreSSHion** is a Rust-based tool designed to exploit a known vulnerability in certain versions of OpenSSH. The vulnerability is related to a **race condition** in the SSH banner exchange, which can be manipulated to trigger a specific heap-based memory flaw, leading to potential remote code execution.
+the CVE-2024-6387 which has been dubbed RegreSSHion.
 
 This project is created for educational and legal penetration testing purposes. It allows you to attempt an exploit on vulnerable SSH servers, particularly targeting specific OpenSSH versions, by sending crafted packets and interacting with the server.
 
@@ -10,20 +11,13 @@ This project is created for educational and legal penetration testing purposes. 
 
 ### Vulnerability
 
-This vulnerability affects certain versions of OpenSSH (e.g., 8.5 - 9.7) where a race condition in the SSH banner exchange phase can be exploited. The attacker can manipulate memory to force the SSH daemon into an unstable state, eventually allowing arbitrary code execution.
+This vulnerability affects certain versions of OpenSSH (e.g., 8.5 - 9.7) where a race condition in the SSH banner exchange phase can be exploited. The attacker can manipulate memory to force the SSH daemon into an unstable state, eventually allowing arbitrary code execution and SSH login bypass to a root shell.
 
 This project utilizes **heap manipulation** techniques to simulate a crafted file structure in memory, sending malformed SSH packets that exploit the vulnerable versions of OpenSSH.
 
 ---
 
 ## Running RustgreSSHion
-
-### Requirements
-
-1. **Rust**: Ensure that you have the latest stable version of Rust installed.
-   - [Installation Instructions](https://www.rust-lang.org/tools/install)
-2. **Linux Environment**: It is recommended to run the project in a native Linux environment or a well-configured VM.
-3. **Vulnerable SSH Server**: Use a test server that runs a vulnerable version of OpenSSH. Do **not** use this tool on servers you do not own or have permission to test.
 
 ---
 
